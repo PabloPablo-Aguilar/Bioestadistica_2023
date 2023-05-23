@@ -1,0 +1,56 @@
+#supongamos que deseamos tener una estimación de la estatura media de los hombres 
+#mayores de 18 en una población. Podriamos ponernos en medio de la calle y 
+#seleccionar aleatoriamente una muestra de n hombres, medir su estatura (o preguntársela) 
+#y calcular después la media aritmética de los datos obtenidos. Esa sería una estimación puntual
+
+#En vez de bajar a la calle, parar a la gente y preguntarle lo que mide, 
+#simulamos cien datos correspondientes a 100 estaturas de varones mayores de 18. 
+#En este caso, tenemos que “simular” que medimos a cien personas, de una población 
+#de varones españoles mayores de 18.
+
+# Consideremos n =100 personas 
+set.seed(1)
+n=100 
+# asi se simulan n datos que siguen
+# una distribución normal de  
+# media 177.7  y desviación típica 5.9 :
+X1=rnorm(n,177.7,5.9) 
+# dibujamos el histograma:
+hist(X1, probability = TRUE, col = 'lightblue', 
+     main="100 estaturas de varones mayores de 18")
+# dibujamos los puntos:
+rug(X1)
+# dibujamos la estimación de la densidad:
+lines(density(X1), col="red",lwd=2)
+mean(X1)
+
+# si vamos al otro dia a encuentar
+n=100
+X2=rnorm(n,177.7,5.9)
+hist(X2, probability = TRUE, col = 'lightblue', 
+     main="100 estaturas de varones mayores de 18")
+# dibujamos los puntos:
+rug(X2)
+# dibujamos la estimación de la densidad:
+lines(density(X2), col="red",lwd=2)
+mean(X2)
+
+# Los datos no van a ser los mismos, y por lo tanto las medias muestrales tampoco. 
+#Cada vez que seleccionemos otra muestra, el estimador media muestral da un valor diferente. 
+#Esto es, la media muestral es una variable aleatoria.
+
+#Vamos ahora a suponer que realizamos este proceso un número grande  B de veces; 
+#es decir, salimos a la calle, medimos a  100 personas, y calculamos la media muestral; 
+#al día siguiente volvemos a hacer lo mismo, y así sucesivamente, hasta B=250 veces
+
+n=100;B=250
+s<-0
+for (i in 1:B) s[i]=mean(rnorm(n,177.7,5.9))
+hist(s, probability = TRUE, col = 'lightblue', 
+     main="250 datos de la media")
+rug(s)
+lines(density(s), col="red",lwd=2)
+mean(s)
+
+#De esta forma, comprobamos que la media (de las diferentes medias) se aproxima al verdadero valor  
+#177.7. Matemáticamente, se puede demostrar que siempre ocurre así; es decir, que la media muestral es un estimador insesgado.
