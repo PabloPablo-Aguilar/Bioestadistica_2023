@@ -1,0 +1,68 @@
+#Ejercicio_1
+#tienes los siguientes datos de expresión génica para dos genes (Gen1 y Gen2) en tres condiciones de tratamiento
+#(Control, Tratamiento1 y Tratamiento2). Los datos se presentan en forma de recuentos de expresión:
+
+# Creación del dataframe con los datos de expresión génica
+datos_expresion <- data.frame(
+  Condicion = c("Control", "Control", "Tratamiento1", "Tratamiento1", "Tratamiento2", "Tratamiento2"),
+  Gen1 = c(10, 12, 8, 9, 7, 6),
+  Gen2 = c(8, 6, 10, 11, 9, 8)
+)
+
+# Estimador puntual de la media para Gen1 en Control
+estimador_media_gen1_control <- mean(datos_expresion$Gen1[datos_expresion$Condicion == "Control"])
+
+# Estimador puntual de la media para Gen1 en Tratamiento1
+estimador_media_gen1_tratamiento1 <- mean(datos_expresion$Gen1[datos_expresion$Condicion == "Tratamiento1"])
+
+# Estimador puntual de la media para Gen1 en Tratamiento2
+estimador_media_gen1_tratamiento2 <- mean(datos_expresion$Gen1[datos_expresion$Condicion == "Tratamiento2"])
+
+# Estimador puntual de la media para Gen2 en Control
+estimador_media_gen2_control <- mean(datos_expresion$Gen2[datos_expresion$Condicion == "Control"])
+
+# Estimador puntual de la media para Gen2 en Tratamiento1
+estimador_media_gen2_tratamiento1 <- mean(datos_expresion$Gen2[datos_expresion$Condicion == "Tratamiento1"])
+
+# Estimador puntual de la media para Gen2 en Tratamiento2
+estimador_media_gen2_tratamiento2 <- mean(datos_expresion$Gen2[datos_expresion$Condicion == "Tratamiento2"])
+
+# Sesgo de los estimadores
+sesgo_gen1_control <- estimador_media_gen1_control - 10  # Valor verdadero de Gen1 en Control
+sesgo_gen1_tratamiento1 <- estimador_media_gen1_tratamiento1 - 8.5  # Valor verdadero de Gen1 en Tratamiento1
+sesgo_gen1_tratamiento2 <- estimador_media_gen1_tratamiento2 - 6.5  # Valor verdadero de Gen1 en Tratamiento2
+sesgo_gen2_control <- estimador_media_gen2_control - 7  # Valor verdadero de Gen2 en Control
+sesgo_gen2_tratamiento1 <- estimador_media_gen2_tratamiento1 - 10.5  # Valor verdadero de Gen2 en Tratamiento1
+sesgo_gen2_tratamiento2 <- estimador_media_gen2_tratamiento2 - 8.5  # Valor verdadero de Gen2 en Tratamiento2
+
+# Visualización de los sesgos
+print(paste("Sesgo estimador media Gen1 en Control:", sesgo_gen1_control))
+print(paste("Sesgo estimador media Gen1 en Tratamiento1:", sesgo_gen1_tratamiento1))
+print(paste("Sesgo estimador media Gen1 en Tratamiento2:", sesgo_gen1_tratamiento2))
+print(paste("Sesgo estimador media Gen2 en Control:", sesgo_gen2_control))
+print(paste("Sesgo estimador media Gen2 en Tratamiento1:", sesgo_gen1_tratamiento1))
+print(paste("Sesgo estimador media Gen2 en Tratamiento2:", sesgo_gen1_tratamiento2))
+
+#Ejercicio_2
+
+#Supongamos que estás trabajando en un proyecto de biotecnología donde has 
+#modificado genéticamente dos cepas de bacterias (Cepa A y Cepa B) para aumentar 
+#la producción de una enzima de interés. Quieres comparar la producción de la enzima
+#entre las dos cepas y determinar si hay una diferencia significativa.
+#Para ello, has llevado a cabo experimentos en los que has medido la actividad 
+#enzimática en diferentes réplicas de cada cepa. Aquí tienes los datos de actividad 
+#enzimática para cada cepa:
+
+# Datos de actividad enzimática para cada cepa
+cepa_a <- c(10.2, 9.8, 11.1, 10.5, 9.9, 10.3, 10.7, 11.0)
+cepa_b <- c(9.6, 9.4, 10.2, 9.8, 9.7, 10.0, 9.9, 10.1)
+
+true_value_cepa_a <- 10.0
+true_value_cepa_b <- 9.5
+
+Calcular:
+# Estimador puntual de la media para la actividad enzimática en Cepa A
+# Estimador puntual de la media para la actividad enzimática en Cepa B
+# Sesgo de los estimadores
+# Eficiencia de los estimadores (varianza)
+
