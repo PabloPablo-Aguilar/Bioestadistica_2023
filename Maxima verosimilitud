@@ -1,0 +1,106 @@
+Eres un científico que trabaja en una empresa de biotecnología y estás a cargo de optimizar la producción 
+de una proteína específica utilizando bacterias modificadas genéticamente. Se te ha asignado la tarea de determinar 
+qué medios de crecimiento producen la mayor cantidad de proteínas.
+
+Datos:
+
+Se te proporcionan datos de tres medios de crecimiento diferentes (Medio A, Medio B y Medio C) con 50 experimentos 
+realizados para cada uno. Los datos representan la concentración de proteínas producida (en mg/mL) por las bacterias después 
+de 24 horas de crecimiento.
+
+Las concentraciones de proteínas se distribuyen normalmente, con los siguientes parámetros para cada medio:
+
+Medio A: μA = 5, σA = 0.5
+Medio B: μB = 4.8, σB = 0.4
+Medio C: μC = 5.2, σC = 0.6
+
+Tarea:
+
+Supón que la concentración de proteínas producida sigue una distribución normal. La función de verosimilitud para la 
+distribución normal se define como:
+
+L(μ, σ^2 | x) = ∏_{i=1}^{n} (1/√(2πσ^2)) * exp(-(x_i - μ)^2 / (2σ^2))
+
+Donde x es un vector que representa los datos observados (la concentración de proteínas), n es el número de observaciones,
+μ es la media de la distribución y σ^2 es la varianza de la distribución.
+
+Calcula la función de verosimilitud para cada medio de crecimiento utilizando los parámetros proporcionados. 
+Esta función te indicará qué parámetros maximizan la probabilidad de observar los datos que tienes.
+
+Identifica qué medio de crecimiento tiene la mayor función de verosimilitud y, por lo tanto, es probable que 
+sea el más eficiente para producir proteínas.
+
+
+set.seed(123)
+
+# Parámetros
+n <- 50
+mu_A <- 5; sigma_A <- 0.5
+mu_B <- 4.8; sigma_B <- 0.4
+mu_C <- 5.2; sigma_C <- 0.6
+
+# Generar datos
+data_A <- rnorm(n, mu_A, sigma_A)
+data_B <- rnorm(n, mu_B, sigma_B)
+data_C <- rnorm(n, mu_C, sigma_C)
+
+log_likelihood <- function(mu, sigma, data) {
+  n <- length(data)
+  ll <- -n/2 * log(2*pi*sigma^2) - sum((data - mu)^2) / (2*sigma^2)
+  return(ll)
+}
+
+ll_A <- log_likelihood(mu_A, sigma_A, data_A)
+ll_B <- log_likelihood(mu_B, sigma_B, data_B)
+ll_C <- log_likelihood(mu_C, sigma_C, data_C)
+
+print(paste("Log-verosimilitud para Medio A:", ll_A))
+print(paste("Log-verosimilitud para Medio B:", ll_B))
+print(paste("Log-verosimilitud para Medio C:", ll_C))
+
+max_ll <- max(ll_A, ll_B, ll_C)
+if (max_ll == ll_A) {
+  print("Medio A tiene la mayor función de log-verosimilitud")
+} else if (max_ll == ll_B) {
+  print("Medio B tiene la mayor función de log-verosimilitud")
+} else {
+  print("Medio C tiene la mayor función de log-verosimilitud")
+}
+
+Ejercicio N°2
+
+Trabajas en un laboratorio de genómica y tu equipo ha desarrollado una nueva metodología para secuenciar ADN. 
+El equipo quiere comparar la calidad del nuevo método (Método X) con dos técnicas establecidas (Método Y y Método Z). 
+La medida de la calidad es el porcentaje de secuencias leídas correctamente.
+
+Se realizaron 30 corridas de secuenciación para cada método y se calculó el porcentaje de secuencias leídas correctamente. 
+Se asume que estos porcentajes se distribuyen de manera normal.
+
+Los parámetros de las distribuciones son los siguientes:
+
+Método X: μX = 98.5, σX = 0.8
+Método Y: μY = 98.2, σY = 0.9
+Método Z: μZ = 98.7, σZ = 0.7
+
+#función de log-verosimilitud
+log_likelihood <- function(mu, sigma, data) {
+  n <- length(data)
+  ll <- -n/2 * log(2*pi*sigma^2) - sum((data - mu)^2) / (2*sigma^2)
+  return(ll)
+}
+
+Al igual que en el ejercicio anterior, debes calcular la función de verosimilitud para cada método y determinar cuál 
+tiene la mayor verosimilitud.
+
+
+
+
+
+
+
+
+
+
+
+
+
