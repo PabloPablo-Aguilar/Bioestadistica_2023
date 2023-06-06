@@ -1,0 +1,84 @@
+#ejercicio_1
+#estás estudiando el crecimiento de una planta de maíz genéticamente modificada y tienes una muestra de 10 plantas. 
+#Mides la altura de cada planta en centímetros y obtienes los siguientes datos:
+
+#Alturas (en cm): 180, 182, 183, 179, 181, 184, 182, 183, 181, 180.
+
+#Quieres calcular el intervalo de confianza del 95% para la media de la altura de estas plantas.
+#Primero, necesitamos calcular la media y la desviación estándar de la muestra. Esto se puede hacer con las funciones mean() y sd() en R.
+
+alturas <- c(180, 182, 183, 179, 181, 184, 182, 183, 181, 180)
+media <- mean(alturas)
+desviacion <- sd(alturas)
+
+#Luego, necesitamos saber el valor de t para un intervalo de confianza del 95% con 9 grados de libertad (n-1 = 10-1 = 9). 
+#Esto se puede obtener con la función qt() en R, que da el cuantil de la distribución t de Student.
+
+t <- qt(0.975, df=9)
+
+#En este caso, usamos 0.975 en lugar de 0.95 porque queremos el valor de t de dos colas. 
+#El 0.975 es el percentil que deja el 2.5% en cada cola de la distribución (100% - 2.5% - 2.5% = 95%).
+#Finalmente, calculamos el intervalo de confianza usando la fórmula para el intervalo de confianza de una media: media ± t * (desviación/√n).
+
+error <- t * (desviacion / sqrt(length(alturas)))
+IC_inf <- media - error
+IC_sup <- media + error
+
+#Ejercicio_2 
+#Estás midiendo la concentración de una proteína producida por tres tipos diferentes de bacterias modificadas genéticamente. 
+Tienes muestras de 8 cultivos de cada tipo de bacteria y obtienes las siguientes mediciones de concentración (en microgramos por mililitro):
+
+#Tipo 1: 5.2, 5.3, 5.5, 5.4, 5.1, 5.3, 5.2, 5.4
+#Tipo 2: 6.2, 6.1, 6.3, 6.2, 6.3, 6.1, 6.2, 6.3
+#Tipo 3: 7.1, 7.2, 7.1, 7.2, 7.3, 7.2, 7.3, 7.1
+
+#Quieres calcular el intervalo de confianza del 95% para la media de cada tipo de bacteria.
+
+#Ejercicio_3
+
+#Supongamos que estás analizando la eficiencia de una nueva técnica de ingeniería genética
+#para aumentar la producción de una enzima en levaduras. 
+#Tienes datos de producción de enzima (en miligramos por litro) para 15 cultivos de 
+#levadura que han sido modificados con esta técnica.
+
+#Los datos son los siguientes:
+#Producción de enzima (en mg/L): 45, 47, 46, 48, 46, 47, 48, 45, 46, 47, 46, 48, 47, 45, 46.
+#Ahora calcularemos el intervalo de confianza del 99% para la media de producción de enzima. 
+
+#ejercicio_4
+
+
+#Un investigador en el campo de la biotecnología está comparando dos cepas de bacterias modificadas genéticamente, Cepa A y Cepa B, para determinar si hay una diferencia significativa en la producción de una determinada enzima de interés. Para ello, el investigador ha recogido datos de producción de enzima (en microgramos por mililitro) de 10 cultivos independientes de cada cepa.
+
+#Los datos recogidos son los siguientes:
+  
+#Cepa A: 5.2, 5.3, 5.5, 5.4, 5.1, 5.3, 5.2, 5.4, 5.3, 5.2
+#Cepa B: 6.1, 6.2, 6.3, 6.1, 6.2, 6.3, 6.2, 6.3, 6.2, 6.1
+
+cepaA <- c(5.2, 5.3, 5.5, 5.4, 5.1, 5.3, 5.2, 5.4, 5.3, 5.2)
+cepaB <- c(6.1, 6.2, 6.3, 6.1, 6.2, 6.3, 6.2, 6.3, 6.2, 6.1)
+
+resultado_ttest <- t.test(cepaA, cepaB)
+print(resultado_ttest)
+
+restultado_ttest_cepa_A <- t.test(cepaA)
+
+#Ejercicio_5
+
+#De una cierta población se ha extraído una muestra de 64 individuos, cuyo valor medio es 1012. 
+#Se sabe por otras experiencias del mismo tipo, que la desviación típica vale 25. 
+#Hallar intervalos de confianza para el valor medio de la población a los niveles de confianza del 0.95 y 0.99. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
