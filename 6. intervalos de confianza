@@ -55,9 +55,6 @@ Tienes muestras de 8 cultivos de cada tipo de bacteria y obtienes las siguientes
 #Cepa A: 5.2, 5.3, 5.5, 5.4, 5.1, 5.3, 5.2, 5.4, 5.3, 5.2
 #Cepa B: 6.1, 6.2, 6.3, 6.1, 6.2, 6.3, 6.2, 6.3, 6.2, 6.1
 
-cepaA <- c(5.2, 5.3, 5.5, 5.4, 5.1, 5.3, 5.2, 5.4, 5.3, 5.2)
-cepaB <- c(6.1, 6.2, 6.3, 6.1, 6.2, 6.3, 6.2, 6.3, 6.2, 6.1)
-
 resultado_ttest <- t.test(cepaA, cepaB)
 print(resultado_ttest)
 
