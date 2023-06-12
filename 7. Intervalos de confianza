@@ -38,3 +38,27 @@ print(paste0("Intervalo de confianza del 95% para la longitud media del sépalo 
 library(dslabs)
 data(heights)
 
+#Ejercicio 4
+# Carga el paquete necesario
+install.packages('binom')
+library(binom)
+
+# Carga el conjunto de datos iris
+data(iris)
+
+# Crea una nueva columna 'is_setosa' que sea 1 si la especie es 'setosa' y 0 en caso contrario
+iris$is_setosa <- as.integer(iris$Species == 'setosa')
+
+# Calcula el número total de observaciones
+n <- nrow(iris)
+
+# Calcula el número de éxitos (observaciones donde la especie es 'setosa')
+x <- sum(iris$is_setosa)
+
+# Calcula el intervalo de confianza
+conf_int <- binom.confint(x, n, methods = "wilson", conf.level = 0.95)
+
+# Imprime el intervalo de confianza
+print(conf_int)
+
+
