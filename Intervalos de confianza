@@ -1,0 +1,40 @@
+# Ejercicio 1
+#calcular el intervalo de confianza del 95% utilizando la aproximación de la distribución normal
+#para la longitud media del sépalo de la especie Iris setosa.
+
+# Paso 1: Cargamos los datos
+data(iris)
+
+# Paso 2: Filtramos los datos para obtener solo las flores Iris setosa
+setosa <- iris[iris$Species == 'setosa',]
+
+# Paso 3: Calculamos la media y la desviación estándar de la longitud del sépalo
+media_longitud_sepalo <- mean(setosa$Sepal.Length)
+desviacion_longitud_sepalo <- sd(setosa$Sepal.Length)
+
+# Paso 4: Determinamos el tamaño de la muestra
+n <- length(setosa$Sepal.Length)
+
+# Paso 5: Calculamos el error estándar
+error_estandar <- desviacion_longitud_sepalo / sqrt(n)
+
+# Paso 6: Calculamos el intervalo de confianza del 95% utilizando la aproximación de la distribución normal
+# Para un 95% de confianza, el valor de Z es aproximadamente 1.96
+z <- 1.96
+
+intervalo_inferior <- media_longitud_sepalo - z*error_estandar
+intervalo_superior <- media_longitud_sepalo + z*error_estandar
+
+# Imprimimos los resultados
+print(paste0("Intervalo de confianza del 95% para la longitud media del sépalo de Iris setosa: [", intervalo_inferior, ", ", intervalo_superior, "]"))
+
+# Ejercicio 2
+# A partir de los datos del ejercicio 1, calcular el intervalo de confianza del 95% utilizando la aproximación de la distribución normal
+#para el ancho medio del sépalo de la especie Iris setosa.
+
+#ejercicio 3
+#calcular el intervalo de confianza del 95% para la altura de una poblacion de:
+
+library(dslabs)
+data(heights)
+
