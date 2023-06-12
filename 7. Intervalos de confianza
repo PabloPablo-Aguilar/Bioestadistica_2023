@@ -61,4 +61,5 @@ conf_int <- binom.confint(x, n, methods = "wilson", conf.level = 0.95)
 # Imprime el intervalo de confianza
 print(conf_int)
 
-
+#ejercicio 5
+#calcular el intervalo de confianza para la proporcion de la especie virginica del data set iris
