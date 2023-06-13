@@ -109,8 +109,3 @@ vector_Sexo
 #A continuación podemos utilizar la función prop.test con estos dos vectores como argumentos.
 
 prop.test(vector_Deporte, vector_Sexo, conf.level = 0.92)
-
-
-
-
-
