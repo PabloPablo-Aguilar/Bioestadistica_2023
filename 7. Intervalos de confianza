@@ -67,6 +67,7 @@ print(conf_int)
 
 #obtener un intervalo de confianza al 95% para la proporción de alumnos en la población. 
 #Del mismo modo, calcular un intervalo de confianza al 90% para la proporción de alumnas.
+#descargar datos del link: https://unatofacl-my.sharepoint.com/:x:/g/personal/pablo_aguilar_uantof_cl/EW2X5xuZ5BNFoLHulrDoRG0Bp7C7wzJHcboYL1oN968dYg?e=liA7ip
 
 #Alumnos
 table(datos$Sexo)
