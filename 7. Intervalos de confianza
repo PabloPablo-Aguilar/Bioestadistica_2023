@@ -76,5 +76,41 @@ prop.test(43,75)
 #Alumnas
 prop.test(32,75, conf.level = 0.90)
 
+#Ejercicio 6 (Intervalo de confianza para la diferencia de medias en dos poblaciones normales independientes)
+
+Flexiones.chicos<- datos$Flexiones[datos$Sexo == “H”]
+Flexiones.chicas<- datos$Flexiones[datos$Sexo == “M”]
+
+Flexiones.chicas
+Flexiones.chicos
+
+var.test(Flexiones.chicos, Flexiones.chicas)
+
+Flexiones.chicos<- datos$Flexiones[datos$Sexo == “H”]
+Flexiones.chicas<- datos$Flexiones[datos$Sexo == “M”]
+t.test(Flexiones.chicos, Flexiones.chicas, var.equal = TRUE)
+
+#Ejercicio 7 (Intervalo de confianza para la diferencia de dos proporciones)
+#calcular un intervalo de confianza al 92% para la diferencia entre la proporción de alumnos y de alumnas 
+#que practican deporte. ¿Puede considerarse que ambas proporciones son iguales?
+
+table(datos$Sexo, datos$Deporte)
+
+#vector_Deporte: Total de chicos y chicas que practican deporte
+#vector_Sexo: Total de chicos y chicas en la muestra.
+
+vector_Deporte<- c(11, 19)
+vector_Deporte
+
+vector_Sexo<- c(43, 32)
+vector_Sexo
+
+#Es muy importante que los valores se introduzcan en el mismo orden en los dos vectores. 
+#A continuación podemos utilizar la función prop.test con estos dos vectores como argumentos.
+
+prop.test(vector_Deporte, vector_Sexo, conf.level = 0.92)
+
+
+
 
 
