@@ -48,7 +48,9 @@ Tienes muestras de 8 cultivos de cada tipo de bacteria y obtienes las siguientes
 #ejercicio_4
 
 
-#Un investigador en el campo de la biotecnología está comparando dos cepas de bacterias modificadas genéticamente, Cepa A y Cepa B, para determinar si hay una diferencia significativa en la producción de una determinada enzima de interés. Para ello, el investigador ha recogido datos de producción de enzima (en microgramos por mililitro) de 10 cultivos independientes de cada cepa.
+#Un investigador en el campo de la biotecnología está comparando dos cepas de bacterias modificadas genéticamente, Cepa A y Cepa B, 
+#para determinar si hay una diferencia significativa en la producción de una determinada enzima de interés. 
+#Para ello, el investigador ha recogido datos de producción de enzima (en microgramos por mililitro) de 10 cultivos independientes de cada cepa.
 
 #Los datos recogidos son los siguientes:
   
