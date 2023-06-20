@@ -95,3 +95,29 @@ shapiro.test(treatment2)
 
 anova(lm(weight ~ group, data = PlantGrowth))
 
+#Ejercicio 6 (test no parametrico)
+#Un estudio compara el número de huevos que pone un determinado insecto bajo 3 condiciones distintas. ¿Existen diferencias significativas dependiendo de las condiciones?
+datos <- data.frame(
+  condicion = c(rep("condicion1", 18), rep("condicion2", 18), rep("condicion3", 18)),
+  n_huevos = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 16, 27, 28, 29, 30, 51, 52, 53, 342, 40,
+               41, 42, 43, 44, 45, 46, 47, 48, 67, 88, 89, 90, 91,92, 93, 94, 293,
+               19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 25, 36, 37, 58, 59, 60, 71, 72)
+)
+aggregate(n_huevos ~ condicion, data = datos, FUN = median)
+aggregate(n_huevos ~ condicion, data = datos, FUN = sd)
+
+library(ggplot2)
+
+ggplot(data = datos, mapping = aes(x = condicion, y = n_huevos, colour = condicion)) +
+  geom_boxplot() +
+  theme_bw() +
+  theme(legend.position = "none")
+
+ggplot(data = datos, mapping = aes(x = n_huevos, colour = condicion)) +
+  geom_histogram() +
+  theme_bw() +
+  facet_grid(. ~ condicion) +
+  theme(legend.position = "none")
+
+kruskal.test(n_huevos ~ condicion, data = datos)
+pairwise.wilcox.test(x = datos$n_huevos, g = datos$condicion, p.adjust.method = "holm" )
