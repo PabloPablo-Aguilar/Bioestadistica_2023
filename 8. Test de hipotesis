@@ -34,3 +34,64 @@ resultado <- aov(c(grupo1, grupo2, grupo3) ~ c(rep("Grupo 1", 4), rep("Grupo 2",
 
 # Imprimir resultado
 print(summary(resultado))
+
+#Ejercicio 4
+data(iris)
+setosa <- iris[iris$Species == 'setosa',]
+virginica <- iris[iris$Species == 'virginica',]
+versicolor <- iris[iris$Species == 'versicolor',]
+
+hist(setosa$Petal.Length)
+lines(density(setosa$Petal.Length), col="red",lwd=2)
+shapiro.test(setosa$Petal.Length)
+
+hist(virginica$Petal.Length)
+lines(density(virginica$Petal.Length), col="red",lwd=2)
+shapiro.test(virginica$Petal.Length)
+
+hist(versicolor$Petal.Length)
+lines(density(versicolor$Petal.Length), col="red",lwd=2)
+shapiro.test(versicolor$Petal.Length)
+
+var.test(setosa$Petal.Length,virginica$Petal.Length)
+t.test(setosa$Petal.Length, virginica$Petal.Length, var.equal = FALSE)
+
+
+
+#Ejercicio 5
+
+library(ggplot2)
+library(car)
+
+
+data(PlantGrowth)
+help(PlantGrowth)
+sd(PlantGrowth$weight) 
+tapply(PlantGrowth$weight, PlantGrowth$group, sd)
+boxplot(weight ~ group, data=PlantGrowth, col="blue")
+attach(PlantGrowth) 
+control <- subset(weight, group == "ctrl") 
+treatment1 <- subset(weight, group == "trt1") 
+treatment2 <- subset(weight, group == "trt2") 
+
+hist(control)
+lines(density(control), col="red",lwd=2)
+
+hist(treatment1)
+lines(density(treatment1), col="red",lwd=2)
+
+hist(treatment2)
+lines(density(treatment2), col="red",lwd=2)
+
+ggplot(PlantGrowth, aes(PlantGrowth$weight)) + 
+  geom_density(aes(data = PlantGrowth$weight, fill = PlantGrowth$group), position = 'identity', alpha = 0.5) +
+  labs(x = 'Weight', y = 'Density') + scale_fill_discrete(name = 'Group') + scale_x_continuous(limits = c(2, 8))
+
+qqPlot(PlantGrowth$weight, col = PlantGrowth$group)
+
+shapiro.test(control)
+shapiro.test(treatment1)
+shapiro.test(treatment2)
+
+anova(lm(weight ~ group, data = PlantGrowth))
+
