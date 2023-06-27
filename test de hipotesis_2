@@ -1,0 +1,165 @@
+#Ejercicio 1 (T-test una muestra)
+#estás trabajando en un laboratorio de biotecnología y 
+#estás interesado en determinar si un nuevo tratamiento de cultivo 
+#celular mejora la viabilidad de las células. 
+#Tienes una muestra de 20 cultivos celulares tratados con el nuevo método
+#y quieres probar la hipótesis de que la viabilidad media de las células 
+#es mayor a un valor de referencia de 80%.
+
+# Datos de la muestra (viabilidad de las células)
+celulas <- c(83.5, 81.2, 82.1, 80.7, 81.8, 82.5, 80.6, 81.9, 82.3, 82.8,
+             83.1, 82.4, 81.5, 83.6, 82.7, 81.3, 82.9, 81.6, 82.2, 80.9)
+
+hist(celulas)
+qqnorm(celulas)
+qqline(celulas)
+shapiro.test(celulas)
+
+# Realizar el test de hipótesis
+t.test(celulas, mu = 80, alternative = "greater")
+
+#Ejercicio 2 (T-test dos muestras)
+#Deseas comparar los niveles de expresión de un gen específico 
+#entre dos grupos de células: un grupo de control y un grupo tratado 
+#con un nuevo fármaco. Tienes dos muestras independientes de 25 
+#observaciones cada una.
+
+# Datos de las muestras
+grupo_control <- c(12.3, 11.5, 10.2, 9.8, 10.9, 11.1, 12.5, 9.7, 11.8, 10.6,
+                   9.9, 11.2, 12.4, 10.5, 11.7, 9.5, 11.3, 12.1, 9.4, 10.8,
+                   11.6, 9.6, 11.9, 10.7, 12.0)
+grupo_tratado <- c(8.7, 8.9, 9.5, 8.3, 9.1, 8.4, 9.8, 8.2, 8.6, 9.3,
+                   9.2, 8.1, 9.0, 8.8, 8.5, 9.4, 8.0, 8.3, 9.7, 8.5,
+                   9.6, 8.6, 9.2, 9.1, 8.7)
+
+
+hist(grupo_control)
+qqnorm(grupo_control)
+qqline(grupo_control)
+shapiro.test(grupo_control)
+
+hist(grupo_tratado)
+qqnorm(grupo_tratado)
+qqline(grupo_tratado)
+shapiro.test(grupo_tratado)
+# Realizar el test de hipótesis
+t.test(grupo_control, grupo_tratado, alternative = "two.sided", var.equal = FALSE)
+
+#Ejercicio 3
+#Estas midiendo la actividad de una enzima con presencia de dos sustratos
+#diferentes. Quieres establecer si hay diferencia significativa entre ambas
+#actividades
+
+set.seed(1)  # Establecer una semilla para reproducibilidad
+
+# Datos de la actividad enzimatica 1
+datos_actividad1 <- rgamma(100, shape = 2, rate = 0.5)
+
+# Datos de la actividad enzimatica 2
+datos_actividad2 <- rgamma(100, shape = 3, rate = 0.6)
+
+
+hist(datos_actividad1)
+qqnorm(datos_actividad1)
+qqline(datos_actividad1)
+shapiro.test(datos_actividad1)
+
+hist(datos_actividad2)
+qqnorm(datos_actividad2)
+qqline(datos_actividad2)
+shapiro.test(datos_actividad2)
+
+hist(log(datos_actividad1))
+qqnorm(log(datos_actividad1))
+qqline(log(datos_actividad1))
+shapiro.test(log(datos_actividad1))
+
+hist(log(datos_actividad2))
+qqnorm(log(datos_actividad2))
+qqline(log(datos_actividad2))
+shapiro.test(log(datos_actividad2))
+
+#Se puede llegar a conclusiones no validas sin tomar en cuenta los supuestos
+t.test(datos_actividad1, datos_actividad2, alternative = "two.sided", var.equal = FALSE)
+
+#Forma correcta de hacer el testeo siguiendo los supuestos
+t.test(log(datos_actividad1), log(datos_actividad2), alternative = "two.sided", var.equal = FALSE)
+#opcion de realizar sin transformar
+wilcox.test(datos_actividad1, datos_actividad2)
+
+
+#Ejercicio 4
+#Un estudio de expresión de genes se realizó para evaluar si hay una 
+#diferencia significativa en la expresión de cierto gen entre dos grupos
+#de células. El grupo 1 fue tratado con una sustancia experimental, 
+#mientras que el grupo 2 fue tratado con un placebo. 
+#Se midió la expresión del gen de interés en cada grupo y se obtuvieron
+#muestras de 100 células para cada grupo
+
+set.seed(1)  # Establecer una semilla para reproducibilidad
+
+# Datos de expresión de genes en el grupo 1
+Experimental <- rgamma(100, shape = 4, rate = 0.5)
+
+# Datos de expresión de genes en el grupo 2
+placebo <- rgamma(100, shape = 4, rate = 0.6)
+
+#Ejercicio 5 (datos binomiales)
+
+
+#estás investigando la relación entre la presencia o ausencia de una 
+#determinada mutación genética (variable nominal binaria) 
+#y la aparición de una enfermedad en una muestra de pacientes 
+#(variable nominal binaria). Tienes los siguientes datos:
+#             Enfermedad    No Enfermedad
+#Mutación         30           70
+#No Mutación      50           80
+# Crear la tabla de contingencia
+tabla_data <- matrix(c(30, 70, 50, 80), nrow = 2, byrow = TRUE)
+
+# Realizar el test chi-cuadrado
+chisq.test(tabla_data)
+
+#Ejercicio 6
+#estás investigando la relación entre la exposición a un determinado 
+#factor de riesgo ambiental (variable nominal binaria) y el desarrollo 
+#de una enfermedad en una muestra de individuos (variable nominal 
+#binaria). Tienes los siguientes datos:
+#             Enfermedad No Enfermedad
+#Expuesto         40           60
+#No Expuesto      20           80
+
+# Crear la tabla de contingencia
+tabla_exposicion <- matrix(c(40, 60, 20, 80), nrow = 2, byrow = TRUE)
+
+# Realizar el test chi-cuadrado
+chisq.test(tabla_exposicion)
+
+#Ejercicio 7
+#estás realizando un experimento en el que deseas comparar la eficacia 
+#de tres diferentes tratamientos en la producción de una proteína en 
+#células cultivadas. Tienes tres grupos de células (Grupo A, Grupo B 
+#y Grupo C) y has medido los niveles de producción de proteína para 
+#cada grupo. Quieres determinar si hay diferencias significativas en 
+#los niveles de producción de proteína entre los tres grupos.
+
+
+# Datos de producción de proteína para cada grupo
+grupo_a <- c(5.2, 6.1, 4.8, 5.7, 5.3)
+grupo_b <- c(6.0, 5.9, 6.2, 6.1, 6.3)
+grupo_c <- c(4.9, 5.1, 5.0, 5.3, 5.2)
+
+# Combinar los datos en un data frame
+datos <- data.frame(Grupo = rep(c("A", "B", "C"), each = 5),
+                    Produccion = c(grupo_a, grupo_b, grupo_c))
+
+# Realizar el análisis de varianza (ANOVA)
+modelo_anova <- aov(Produccion ~ Grupo, data = datos)
+resultado_anova <- summary(modelo_anova)
+
+# Mostrar los resultados
+print(resultado_anova)
+
+
+
+
