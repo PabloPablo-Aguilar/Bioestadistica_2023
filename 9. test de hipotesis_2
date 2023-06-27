@@ -50,7 +50,7 @@ t.test(grupo_control, grupo_tratado, alternative = "two.sided", var.equal = FALS
 #diferentes. Quieres establecer si hay diferencia significativa entre ambas
 #actividades
 
-set.seed(1)  # Establecer una semilla para reproducibilidad
+set.seed(123)  # Establecer una semilla para reproducibilidad
 
 # Datos de la actividad enzimatica 1
 datos_actividad1 <- rgamma(100, shape = 2, rate = 0.5)
@@ -96,7 +96,7 @@ wilcox.test(datos_actividad1, datos_actividad2)
 #Se midió la expresión del gen de interés en cada grupo y se obtuvieron
 #muestras de 100 células para cada grupo
 
-set.seed(1)  # Establecer una semilla para reproducibilidad
+set.seed(123)  # Establecer una semilla para reproducibilidad
 
 # Datos de expresión de genes en el grupo 1
 Experimental <- rgamma(100, shape = 4, rate = 0.5)
