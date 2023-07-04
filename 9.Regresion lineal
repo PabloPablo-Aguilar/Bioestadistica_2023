@@ -1,0 +1,86 @@
+#Ejercicio 1
+#stás interesado en predecir el rendimiento de una planta 
+#genéticamente modificada en función de la cantidad de 
+#fertilizante que se utiliza
+
+# Cantidad de fertilizante en kilogramos
+fertilizante <- c(1, 2, 3, 4, 5)
+
+# Rendimiento de la planta en toneladas
+rendimiento <- c(1.2, 2.3, 3.5, 4.7, 5.9)
+
+# Ajustar el modelo de regresión lineal
+modelo <- lm(rendimiento ~ fertilizante)
+
+# Imprimir un resumen del modelo
+summary(modelo)
+
+# Hacer una predicción
+predict(modelo, newdata = data.frame(fertilizante = 4.5))
+
+#Ejercicio 2
+#descargar datos
+#https://unatofacl-my.sharepoint.com/:x:/g/personal/pablo_aguilar_uantof_cl/EUPtO8u5_L5EmxQUq5HDF68BC8NSlFsRUatuJiYx8H2CPQ?e=3ZPoVh
+#Los datos del archivo EdadPesoGrasas.xlxs corresponden a 
+#tres variables medidas en 25 individuos: edad, peso y 
+#cantidad de grasas en sangre.
+
+names(edadpesograsa)
+pairs(edadpesograsa)
+
+#Para cuantificar el grado de relación lineal, calculamos la matriz de coeficientes de correlación
+cor(edadpesograsa)
+regresion <- lm(grasas ~ edad, data = edadpesograsa)
+summary(regresion)
+confint(regresion)
+#y=102.575+5.321x
+
+plot(edadpesograsa$edad, edadpesograsa$grasas, xlab='Edad', ylab='Grasas')
+abline(regresion)
+
+nuevas.edades <- data.frame(edad = seq(30, 50))
+predict(regresion, nuevas.edades)
+
+#Ejercicio 3
+
+#Vamos a tener varios árboles y nos va a interesar saber o 
+#conocer su circunferencia para distintos días. 
+#La pregunta en específico que vamos a tratar de resolver es:
+# ¿cuál sería la medida de un árbol de naranjas a los 800 
+#días de sembrado?
+
+# cargando paquete para analizar datos
+library(tidyverse)
+
+# cargando datos a entorno
+data("Orange")
+
+plot(Orange$age,Orange$circumference)
+
+# "mejor" ajuste de regresión lineal simple
+orange_regresion <- lm(circumference ~ age, data = Orange)
+summary(orange_regresion)
+abline(orange_regresion)
+predict(orange_regresion, newdata = data.frame(age = 800))
+
+#Ejercicio 4
+
+# Se desea ajustar un modelo de regresión lineal simple para
+#explicar la Resistencia (psi) de una soldadura en función de la 
+#Edad de la soldadura (semanas)
+
+file <- "https://raw.githubusercontent.com/fhernanb/datos/master/propelente"
+datos <- read.table(file=file, header=TRUE)
+head(datos)
+
+library(ggplot2)
+ggplot(datos, aes(x=Edad, y=Resistencia)) + 
+  geom_point() + theme_light()
+
+mod1 <- lm(Resistencia ~ Edad, data=datos)
+summary(mod1)
+
+ggplot(datos, aes(x=Edad, y=Resistencia)) + 
+  geom_point() +
+  geom_smooth(method='lm', formula=y~x, se=FALSE, col='dodgerblue1') +
+  theme_light()
