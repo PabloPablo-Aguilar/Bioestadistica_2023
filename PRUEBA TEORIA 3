@@ -1,0 +1,53 @@
+•	Recuerde que responder a estas preguntas se realiza en forma individual. 
+•	Adicional a las respuestas, se debe entregar los scripts que utilizaron para responderlas. 
+•	Cualquier duda durante la prueba escribir a pablo.aguilar@uantof.cl
+•	Les deseo éxito en su trabajo.
+
+Importante: Previo la realización de la prueba, descargue los sets de datos desde el siguiente enlace: 
+
+https://unatofacl-my.sharepoint.com/:f:/g/personal/pablo_aguilar_uantof_cl/EvUTsgOovW9PkqaX5C61lkUBWRIDI1RrMtyPAn_85LK6FQ?e=eyy1gy
+
+Pregunta 1 (6 puntos)
+Se han registrado datos (data(iris)) para cuantificar la variación morfológica de la flor Iris de tres especies relacionadas. 
+Responda:
+a. ¿Cuál de las tres especies tiene el mayor largo medio del pétalo?
+b. ¿Cuáles son los intervalos de confianza del 95% (z<-1.96) para la media de cada especie. 
+
+Pregunta 2 (6 puntos)
+En un biorreactor se han identificado 588 especies de bacterias diferentes (aerobic_anaerobic.xlsx) y se ha detectado la presencia de dos metabolismos principales, aeróbico y anaeróbico. 
+Responda:
+a. ¿Cuál es el intervalo de confianza del 95% de la proporción de bacterias aeróbicas?
+b. ¿Cuál es el intervalo de confianza del 95% de la proporción de bacterias anaeróbicas?
+c. ¿Qué tipo de metabolismo es más predominante en el biorreactor?
+
+Pregunta 3 (5 puntos)
+Se ha realizado un estudio clínico (presion_sanguinea.xlsx) para evaluar la efectividad de un nuevo medicamento antihipertensivo, donde se busca reducir la presión arterial alta. En este estudio se trató a 75 pacientes con el nuevo medicamento y 75 pacientes con un placebo. Con la intención de registrar la efectividad del medicamento se les midió la presión arterial sistólica (mmHg) luego de ser administrado.
+Responda:
+a. ¿Existe diferencia significativa en la presión arterial sistólica entre ambos grupos? 
+b. Interprete los resultados y responda si el medicamento está teniendo un efecto en los pacientes tratados.
+
+Ejercicio 4 (4 puntos)
+En un laboratorio de química desean determinar si un nuevo catalizador mejora la eficiencia de una reacción química. Han medido la eficiencia (%) de 25 experimentos con el nuevo catalizador. Además, Previamente han detectado que la eficiencia media de la reacción sin el nuevo catalizador es del 83.8%
+Los datos de eficiencia obtenidos para los 25 experimentos son los siguientes: 
+datos_con_catalizador <- c(91, 92, 95, 88, 90, 93, 92, 89, 94, 91, 93, 90, 88, 92, 90, 93, 95, 92, 89, 91, 90, 94, 93, 92, 90)
+#Responda:
+a. ¿Es significativamente mayor la eficiencia media de la reacción química con el nuevo catalizador?
+
+Ejercicio 5 (4 puntos)
+Estás llevando a cabo un estudio para evaluar el riesgo de desarrollar cáncer en relación con el hábito de fumar. Has dividido a tus participantes en dos grupos: fumadores y no fumadores. Tu objetivo es investigar si existe una asociación significativa entre el hábito de fumar y la incidencia de cáncer. 
+Los datos recopilados muestran los siguientes porcentajes:
+Responda:
+a. ¿Está el hábito de fumar relacionado de manera significativa con la incidencia de cáncer? ¿Por qué? 
+
+Ejercicio 6 (10 puntos)
+En un estudio se está evaluando la producción (concentración) de un antibiótico a partir de dos especies diferentes de hongos (produccion_antibiotico.xlsx).
+Responda: 
+a. ¿Hay una diferencia significativa en la producción de antibiótico entre estas dos especies de hongos? 
+b. ¿Qué especie de hongo presenta la mayor producción? Interprete los resultados
+
+Ejercicio 7 (8 puntos)
+Se han registrado las alturas de 8 niños (edad_altura.xlsx) y se busca analizar si la altura depende de la edad. Para responder realice los siguiente:
+a. Grafique la relación entre ambas variables.
+b. Ajuste un modelo de regresión lineal simple.
+c. Escriba la ecuación de la recta.
+d. ¿Qué altura tendría un niño de 8 años?
