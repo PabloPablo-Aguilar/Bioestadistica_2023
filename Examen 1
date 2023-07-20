@@ -1,0 +1,33 @@
+• Recuerde que responder a estas preguntas se realiza en forma individual.
+• Adicional a las respuestas, se debe entregar los scripts que utilizaron para responderlas.
+• Cualquier duda durante la prueba escribir a pablo.aguilar@uantof.cl
+• Les deseo éxito en su trabajo.
+Importante: Previo la realización de la prueba, descargue los sets de datos desde el siguiente enlace:
+https://unatofacl-my.sharepoint.com/:f:/g/personal/pablo_aguilar_uantof_cl/Eqpn1ni6YuBFoBmswiJllUQBbea193MhsCn7WnFrlZfhSw?e=afYOv8
+Pregunta 1 (8 puntos)
+Se han registrado datos (data(iris)) para cuantificar la variación morfológica de la flor Iris de tres especies relacionadas.
+Responda:
+a. ¿Cuál de las tres especies tiene el mayor ancho medio del sépalo?
+b. ¿Cuáles son los intervalos de confianza del 95% (z<-1.96) para la media del ancho del sépalo de cada especie?
+Pregunta 2 (5 puntos)
+Se ha llevado a cabo un estudio (plantas.xlsx) con el objetivo de evaluar el efecto de un fertilizante en el crecimiento de una especie de planta. Se trabajó con dos grupos: el grupo A, que no recibió fertilizante, y el grupo B, que sí recibió fertilizante. Cada grupo estaba compuesto por 30 plantas, y se midió su tamaño (cms) un mes después de la germinación.
+Responda:
+a. ¿Existe diferencia significativa entre ambos grupos? Interprete los datos
+Pregunta 3 (6 puntos)
+En un estudio se está evaluando la producción (concentración) de un antibiótico a partir de dos especies diferentes de hongos (produccion_antibiotico.xlsx).
+Responda:
+a. ¿Hay una diferencia significativa en la producción de antibiótico entre estas dos especies de hongos?
+b. ¿Qué especie de hongo presenta la mayor producción? Interprete los resultados
+Ejercicio 4 (3 puntos)
+Estás llevando a cabo un estudio para evaluar la relación entre la práctica de algún deporte y la depresión. Tu objetivo es investigar si existe relación entre ambas variables. Los datos recopilados muestran los siguientes porcentajes:
+Sin depresión Con depresión
+Deportista 38% 9%
+No deportista 31% 22%
+Responda:
+#a. Determina si la práctica de algún deporte está relacionada de manera significativa con la incidencia de depresión.
+Ejercicio 5 (8puntos)
+Se han registrado las alturas de 8 niños (edad_altura.xlsx) y se busca analizar si la altura depende de la edad. Para responder realice los siguiente:
+a. Grafique la relación entre ambas variables.
+b. Ajuste un modelo de regresión lineal simple.
+c. Escriba la ecuación de la recta.
+d. ¿Qué altura tendría un niño de 8 años?
